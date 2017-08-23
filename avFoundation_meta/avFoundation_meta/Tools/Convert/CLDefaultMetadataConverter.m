@@ -10,4 +10,16 @@
 
 @implementation CLDefaultMetadataConverter
 
+- (id)displayValueForItem:(AVMetadataItem *)item
+{
+    return item.value;
+}
+
+- (AVMetadataItem *)metadataItemFromDisplayValue:(id)value withMetadataItem:(AVMetadataItem *)item
+{
+    AVMutableMetadataItem *metadataItem = [item copy];
+    metadataItem.value = value;
+    return metadataItem;
+}
+
 @end
